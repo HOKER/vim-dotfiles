@@ -1,7 +1,6 @@
 "=> Basic Setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 syntax on "Setting syntax highlight
 set autoread "Set to auto read when a file is changed from outside
 set encoding=utf8 "Set utf8 as standard encoding
@@ -13,39 +12,16 @@ set noswapfile
 set nobackup
 set nowritebackup
 let &titleold=getcwd()
-"Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost .vimrc source % "Automatic reloading of .vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "=> User interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 set ruler "show current position
-
-"Configure backspace it should be
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
 set number "Show line numbers
 
-set list
-set listchars=tab:▸\ ,trail:·,eol:˼ "Show whitespace
-
-" Highlight trailing/leading whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+\%#\@<!$/
-
-"Set colors for solarized
-set background=dark
-colorscheme Tomorrow-Night
-"let g:solarized_termcolors=256
-"let base16colorspace=256
-set t_Co=256
-
-
-"Status line
-set laststatus=2
-
+set laststatus=2 "Status line
 
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
@@ -59,9 +35,6 @@ endfunction
 
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
-
-" default the statusline to green when entering Vim
-hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
 
 " Formats the statusline
 set statusline=%f                           " file name
@@ -81,11 +54,9 @@ set showmode
 set showcmd
 set cursorline
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "=> indent, text and tab and serch
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 set expandtab "Use spaces instead of tabs
 set smarttab "Set smart when using tabs
@@ -107,40 +78,12 @@ set showmatch "show match
 set undolevels=1000 "set undo backward 1000
 set title
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"=> Plugins setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"Enable filetype plugins
-filetype plugin indent on
-filetype indent on
-
-"Load pathogen plugin
-execute pathogen#infect()
-
-"Load ctrl-p plugin
-set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-" Show syntastic errors in location-list
-let g:syntastic_auto_loc_list=1
-let g:syntastic_auto_loc_list_height=1
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "=> Mapping keys.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Rebind <Leader> key
 let mapleader = ","
-
-"Set key mapping for Emmet
-let g:user_emmet_expandabbr_key = '<c-e>'
-
-"Set key mapping for Ctrlp
-let g:ctrlp_map = '<c-p>'
 
 "Disable Arrow keys in Escape mode
 map <up> <nop>
