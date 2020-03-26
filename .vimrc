@@ -12,6 +12,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 let &titleold=getcwd()
+highlight Comment ctermfg=green
 autocmd! bufwritepost .vimrc source % "Automatic reloading of .vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -75,7 +76,7 @@ set shiftround "nuse multiple of siftwidth when indent with '<' and ':"
 set hlsearch "highlight search
 set showmatch "show match
 
-set undolevels=1000 "set undo backward 1000
+set undolevels=5000 "set undo backward 1000
 set title
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
