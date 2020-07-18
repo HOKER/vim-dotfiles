@@ -11,6 +11,8 @@ filetype on "Automatically detect file types
 set noswapfile
 set nobackup
 set nowritebackup
+set ttyfast
+let loaded_matchparen = 1 
 let &titleold=getcwd()
 highlight Comment ctermfg=green
 autocmd! bufwritepost .vimrc source % "Automatic reloading of .vimrc
@@ -117,4 +119,6 @@ map <Leader>m <esc>:tabnext<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-
+call plug#begin('~/.vim/plugged')
+Plug 'dart-lang/dart-vim-plugin'
+call plug#end()
